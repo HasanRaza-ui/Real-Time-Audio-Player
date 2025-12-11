@@ -1,37 +1,68 @@
-# Real-Time Audio Player (C++17)
+# 🎵 Real-Time Audio Player (C++17)
 
-A lightweight, real-time audio playback engine written in Modern C++17.  
-Designed for low-latency streaming, buffer management, and stable playback across platforms.
+A lightweight, real-time audio playback engine built in **Modern C++ (C++17)**.  
+This project demonstrates **low-latency streaming**, **buffer management**, and **real-time audio processing** — skills essential for embedded systems, DSP tools, and performance-critical applications.
+
+---
 
 ## 🚀 Features
-- Real-time audio playback with double-buffering
-- Efficient circular buffer for low-latency streaming
-- Uses RAII for clean resource management
-- Modular architecture for DSP extensions
-- Cross-platform ready (Linux/Windows)
+- 🔊 **Low-latency audio playback**
+- 🔄 **Double-buffering system** for smooth streaming
+- 🎛️ Volume and playback controls
+- 🧠 Efficient memory handling using RAII & smart pointers
+- 📦 Modular architecture for easy extension
 
-## 🛠️ Technical Highlights
-- **C++17 STL** (`std::vector`, `std::unique_ptr`, `std::thread`)
-- **Real-time buffer management**
-- **Low-level file/stream handling**
-- **Threading model for producer–consumer audio flow**
-- **Clean separation of I/O, decoding, and playback**
+---
 
-## 📦 Build Instructions
+## 🧩 Architecture Overview
+
+```mermaid
+flowchart TD
+    A[Audio File Loader] --> B[Streaming Buffer Manager]
+    B --> C[Audio Output Engine]
+    C --> D[Operating System Audio Driver]
+    E[User Controls] --> C
+
+    🛠️ Build Instructions
+Requirements
+CMake ≥ 3.10
+
+C++17 compiler
+
+PortAudio or SDL2 (depending on your backend)
+
+Build
+Bash
 
 mkdir build && cd build
 cmake ..
 make
-./audio_player <path-to-audio-file>
+▶️ Run
+Bash
 
+./audio_player path/to/audio.wav
+📁 Project Structure
+Plaintext
 
-## 🧪 What This Demonstrates
-- Understanding of **real-time system constraints**
-- Ability to design **stable, low-latency pipelines**
-- Experience working with **memory management, threads, and synchronization**
-- Competency in **cross-platform C++ development**
+src/
+ ├── AudioPlayer.cpp
+ ├── BufferManager.cpp
+ ├── main.cpp
+include/
+ ├── AudioPlayer.hpp
+ ├── BufferManager.hpp
+💡 What I Learned
+Real-time systems design
 
-## 📈 Future Improvements
-- Add a simple DSP pipeline (EQ, filters)
-- Add unit tests for buffer edge cases
-- Integrate PortAudio or RtAudio for hardware abstraction
+Double-buffering & synchronization
+
+Low-level audio streaming
+
+RAII-based memory safety
+
+🚧 Future Improvements
+Add spectrum visualization
+
+Add MP3/FLAC decoder
+
+Add GUI using Qt
